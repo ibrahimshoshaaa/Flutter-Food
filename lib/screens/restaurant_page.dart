@@ -61,7 +61,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                     image: DecorationImage(
                       image: widget.restaurant.imageUrl.startsWith('http')
                           ? NetworkImage(widget.restaurant.imageUrl)
-                          : const AssetImage(''),
+                          : const NetworkImage('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200'),
                       fit: BoxFit.cover,
                     ),
                   ),
