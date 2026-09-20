@@ -1,81 +1,64 @@
-# Flutter Food Delivery Application
+# Flutter Food
 
-A cross-platform food delivery application built using Flutter and Dart. This project demonstrates a modern approach to developing scalable and maintainable mobile apps for food delivery services.
+Production-oriented Flutter food delivery application.
 
-## Table of Contents
+> The current repository contains the customer-app foundation. Backend, restaurant operations, delivery, payments and administration are being added incrementally behind a versioned API.
 
-- [Demo](#Demo)
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [Author](#author)
+## Current status
 
-## 📸 Demo
+**Phase 1 — Production Foundation**
 
-| Home 1                                   | Home 2                                   | Restaurant 1                                         | Restaurant 2                                         |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![Home 1](assets/screenshots/home_1.png) | ![Home 2](assets/screenshots/home_2.png) | ![Restaurant 1](assets/screenshots/restaurant_1.png) | ![Restaurant 2](assets/screenshots/restaurant_2.png) |
+- Flutter/Dart project identity standardized to Flutter Food.
+- Android application ID: `com.ibrahimshoshaaa.flutterfood`.
+- iOS bundle identifier: `com.ibrahimshoshaaa.flutterfood`.
+- Release builds no longer fall back to debug signing; production signing must be supplied through ignored `android/key.properties` or CI secrets.
+- Baseline widget test added.
+- GitHub Actions CI runs dependency installation, static analysis, tests and a debug Android build.
+- Production architecture documented in `docs/PRODUCTION_ARCHITECTURE.md`.
 
-| Home                                 | Doctor List                                | Profile                                    | Booking                                    |
-| ------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| ![Home](assets/screenshots/home.png) | ![Doctors](assets/screenshots/doctors.png) | ![Profile](assets/screenshots/profile.png) | ![Booking](assets/screenshots/booking.png) |
+## Planned product scope
 
-## Features
+- Customer authentication and profile
+- Restaurant discovery and menus
+- Search, categories and favorites
+- Cart and checkout
+- Payments
+- Orders and order history
+- Delivery tracking
+- Push notifications
+- Restaurant operations
+- Admin operations
 
-- User-friendly and modern interface for browsing restaurants and menus.
-- Support for user authentication and profile management.
-- Real-time order tracking and status updates.
-- Secure checkout and payment integration.
-- Restaurant and food item search functionality.
-- Responsive design for Android and iOS.
+## Development
 
-## Getting Started
+Requirements:
 
-To run this project locally:
+- Flutter stable
+- Dart SDK compatible with `pubspec.yaml`
+- Android Studio/SDK for Android development
+- Xcode for iOS development
 
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/TareqAlKushari/Flutter-Food-Delivery-Application.git
-    cd Flutter-Food-Delivery-Application
-    ```
+Run:
 
-2. **Install dependencies:**
-    ```bash
-    flutter pub get
-    ```
+```bash
+flutter pub get
+flutter analyze
+flutter test
+flutter run
+```
 
-3. **Run the application:**
-    ```bash
-    flutter run
-    ```
+## Android release signing
 
-> **Note:** Ensure you have Flutter installed. See the [Flutter installation guide](https://flutter.dev/docs/get-started/install) for details.
+Copy `android/key.properties.example` to `android/key.properties` and provide a real release keystore. The real file is ignored by Git and must never be committed.
 
-## Project Structure
+## Architecture
 
-A typical Flutter project structure may include:
+See `docs/PRODUCTION_ARCHITECTURE.md`.
 
-- `lib/` — Main source code directory
-- `lib/main.dart` — Entry point of the application
-- `lib/screens/` — UI screens and pages
-- `lib/models/` — Data models
-- `lib/services/` — Business logic and backend communication
-- `assets/` — Images, fonts, and other assets
+## Repository workflow
 
-> For detailed file organization, refer to the source code in this repository.
-
-## Contributing
-
-Contributions are welcome! Please open issues or submit pull requests for improvements and bug fixes.
+Production changes should be developed on feature/fix branches, validated by CI, reviewed, and then merged into `main`.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Author
-
-Developed by [Tareq Al Kushari](https://github.com/TareqAlKushari).
-
----
+See `LICENSE`.

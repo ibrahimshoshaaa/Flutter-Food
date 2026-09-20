@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:foodly/screens/explore_page.dart';
 
-import 'components/category_card.dart';
 import 'components/color_button.dart';
-import 'components/post_card.dart';
-import 'components/restaurant_landscape_card.dart';
 import 'components/theme_button.dart';
 import 'constants.dart';
-import 'models/food_category.dart';
-import 'models/post.dart';
-import 'models/restaurant.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -30,10 +24,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // TODO: Track current tab
   int tab = 0;
 
-  // TODO: Define tab bar destinations
   List<NavigationDestination> appBarDestinations = const [
     NavigationDestination(
       icon: Icon(Icons.home_outlined),
@@ -54,11 +46,10 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Define pages
     final pages = [
       ExplorePage(),
       const Center(
-          child: Text('Order Page', style: TextStyle(fontSize: 32.0)),
+        child: Text('Order Page', style: TextStyle(fontSize: 32.0)),
       ),
       const Center(
         child: Text('Account Page', style: TextStyle(fontSize: 32.0)),
@@ -69,7 +60,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(widget.appTitle),
         elevation: 4.0,
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         actions: [
           ThemeButton(
             changeThemeMode: widget.changeTheme,
@@ -80,20 +71,14 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      // TODO: Switch between pages
       body: IndexedStack(index: tab, children: pages),
-      // TODO: Add bottom navigation bar
-      // 1
       bottomNavigationBar: NavigationBar(
-        // 2
         selectedIndex: tab,
-        // 3
         onDestinationSelected: (index) {
           setState(() {
             tab = index;
           });
         },
-        // 4
         destinations: appBarDestinations,
       ),
     );

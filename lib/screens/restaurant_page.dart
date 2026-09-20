@@ -59,7 +59,9 @@ class _RestaurantPageState extends State<RestaurantPage> {
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(16.0),
                     image: DecorationImage(
-                      image: AssetImage(widget.restaurant.imageUrl),
+                      image: widget.restaurant.imageUrl.startsWith('http')
+                          ? NetworkImage(widget.restaurant.imageUrl)
+                          : const NetworkImage('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200'),
                       fit: BoxFit.cover,
                     ),
                   ),
